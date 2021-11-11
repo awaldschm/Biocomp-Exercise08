@@ -1,5 +1,6 @@
 ###Tutorial 8
 ##11/12/2021
+##Alexis Waldschmidt
 
 #set my new working directory
 setwd("~/Intro to Biocomputing/Lesson5/Biocomp-Exercise08")
@@ -79,9 +80,25 @@ axis(1, at = c(1, 2, 3, 4), labels = c("1st", "2nd", "3rd", "4th")) #to specify 
 #   containing a set of integers
 
 #get the computer to generate a random number between 1 and 100
-for(i in sample(1:100, size = 1)){
-  print("I'm thinking of a number 1-100...")
-  print("Guess:")
-  print(i)
-}#end for loop
+guess_my_number <- function(x){var <- numeric(length = 10) #we will never actually put data into this function
+random_num <- as.numeric(sample(1:100, size = 1))
+print("I'm thinking of a number 1-100...")
+print("Guess:")
 
+for(i in 1:10){
+  var[i] <-  as.integer(readline());
+  if(var[i] < random_num){
+    print("Higher")
+    print("Guess:")
+  }else if(var[i] > random_num){
+    print("Lower")
+    print("Guess:")
+  }else{
+    print("Correct!")
+    break
+  }
+}
+}
+
+#now to play the game, run this:
+guess_my_number()
